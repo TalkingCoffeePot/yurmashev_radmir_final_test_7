@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/main_style.css' %}">
 </head>
 <body>
     <div class="container">
@@ -12,8 +14,8 @@
             {% for task in tasks %}
                 <div class="task_box">
                     <h2>{{task.description}}</h2>
-                    <h3>{{ task.task_status}}</h3>
-                    <h3>{{task.date}}</h3>
+                    <h3>Status: {{ task.task_status}}</h3>
+                    <h3>Finish date: {{task.date}}</h3>
                 </div>
                 <hr>
             {% endfor %}
