@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-status_choices = [('new', 'Новая'), ('in_progress', 'В процессе'),  ('done', 'Сделано')]
+status_choices = [('new', 'New'), ('in_progress', 'In progress'),  ('done', 'Done')]
 
 class Task(models.Model):
     description = models.TextField(max_length=500, null=False, blank=False, verbose_name='Описание')
