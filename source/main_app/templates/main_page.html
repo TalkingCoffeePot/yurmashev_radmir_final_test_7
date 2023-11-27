@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>To-do task manager!</h1>
+        <div class="task_container">
+            {% for task in tasks %}
+                <div class="task_box">
+                    <h2>{{task.description}}</h2>
+                    <option value="{{task.task_status.0}}">{{ task.task_status.1 }}</option>
+                    <h3>{{task.date}}</h3>
+                </div>
+                <hr>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
