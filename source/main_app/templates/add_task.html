@@ -7,9 +7,10 @@
 </head>
 <body>
     <div class="container">
-        <form action="/add/" method="post">
+        <form action="/task_added/" method="post">
+            {% csrf_token %}
             <div class="description">
-                <textarea type="text">Описание задачи</textarea>
+                <textarea name='description' type="text">Описание задачи</textarea>
             </div>
             <div class="status">
                 <select name="status" id="">
@@ -18,14 +19,16 @@
                     {% endfor %}
                 </select>
             </div>
-            <div class="data">
-                <input type="text" value="YYYY-MM-DD">
+            <div class="date">
+                <input name='date' type="text" value="YYYY-MM-DD">
             </div>
             <div class="button">
                 <button type="submit">Создать задачу</button>
             </div>
         </form>
-        
+        <div class="return">
+            <a href="/">На главную</a>
+        </div>
     </div>
 </body>
 </html>
