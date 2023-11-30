@@ -1,34 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/detailed.css' %}">
-</head>
-<body>
-    <div class="container">
-            <div class="task_box">
-                {% csrf_token %}
-                <div class="box">
-                    <h1>{{task.description}}</h1>
-                </div>
+{% extends "base.html" %}
+{% load static %}
 
-                <div class="box">
-                    <h2>{{task.task_status}}</h2>
-                </div>
-
-                <div class="box">
-                    <h2>{{task.date}}</h2>
-                </div>
-                <div class="box">
-                    <p>{{task.details}}</p>
-                </div>
-            </div> 
+{% block title %}Detailed{% endblock %}
+{% block style %}{% static 'css/detailed.css' %}{% endblock %}
+{% block menu %}
+    <li class="list">
         <div class="return">
             <a href="{% url 'tasks' %}">На главную</a>
         </div>
-    </div>
-</body>
-</html>
+    </li>
+{% endblock %}
+{% block content %}
+        <div class="task_box">
+            {% csrf_token %}
+            <div class="box">
+                <h1>{{task.description}}</h1>
+            </div>
+
+            <div class="box">
+                <h2>{{task.task_status}}</h2>
+            </div>
+
+            <div class="box">
+                <h2>{{task.date}}</h2>
+            </div>
+            <div class="box">
+                <p>{{task.details}}</p>
+            </div>
+        </div> 
+{% endblock %}
+
