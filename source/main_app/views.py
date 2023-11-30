@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from main_app.models import Task, status_choices
 # Create your views here.
 
@@ -33,4 +33,11 @@ def add_task(request):
     context = {
         'tasks': task
     }
-    return render(request, 'main_page.html', context)
+    return redirect('tasks')
+
+def detailed_view(request, pk):
+    task = Task.objects.get(pk=pk)
+    context = {
+        'task': task
+    }
+    return render(request, 'detailed_task.html', context)
