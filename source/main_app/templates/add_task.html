@@ -14,7 +14,7 @@
             <div class="form_box">
                 {% csrf_token %}
                 <div class="box">
-                    <textarea name='description' type="text">Описание задачи</textarea>
+                    <input name='description' type="text" value="Ваша задача">
                 </div>
 
                 <div class="box">
@@ -27,6 +27,9 @@
 
                 <div class="box">
                     <input name='date' type="date" value="YYYY-MM-DD">
+                </div>
+                <div class="box">
+                    <textarea name='details' type="text">Опишите детали</textarea>
                 </div>
 
                 <div class="box">

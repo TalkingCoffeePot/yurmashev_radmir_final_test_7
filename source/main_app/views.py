@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from main_app.models import Task, status_choices
 # Create your views here.
 
@@ -8,15 +10,16 @@ def main_list(request):
     context = {
         'tasks': tasks
     }
-    print(type(tasks))
     return render(request, 'main_page.html', context)
 
+#############################################################################
 def new_task(request):
     context = {
         'status_choices': status_choices
     }
     return render(request, 'add_task.html', context)
 
+#############################################################################
 def add_task(request):
     description = request.POST.get('description')
     
@@ -26,8 +29,9 @@ def add_task(request):
             status = x[1]
 
     date = request.POST.get('date')
+    details = request.POST.get('details')
 
-    Task.objects.create(description=description, task_status=status, date=date)
+    Task.objects.create(description=description, task_status=status, date=date, details=details)
     task = Task.objects.all()
 
     context = {
@@ -35,6 +39,7 @@ def add_task(request):
     }
     return redirect('tasks')
 
+##############################################################################
 def detailed_view(request, pk):
     task = Task.objects.get(pk=pk)
     context = {
