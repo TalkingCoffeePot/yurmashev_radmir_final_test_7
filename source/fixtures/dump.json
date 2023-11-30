@@ -4,8 +4,9 @@
   "pk": 1,
   "fields": {
     "description": "Check my email",
-    "task_status": "In progress",
-    "date": "2023-12-04"
+    "task_status": "new",
+    "date": "2023-12-04",
+    "details": "╧ЁютхЁ Є№ яюўЄє - с√трхЄ тхё№ьр яюыхчэю"
   }
 },
 {
@@ -13,8 +14,9 @@
   "pk": 2,
   "fields": {
     "description": "Create a simple web-search app",
-    "task_status": "New",
-    "date": "2023-12-12"
+    "task_status": "new",
+    "date": "2023-12-12",
+    "details": "┬эх Ёрьюъ фюьр°эхую чрфрэш  яюэ Є№ ъръ эряшёрЄ№ ш ъръ тююс∙х ЁрсюЄрхЄ яюшёъютющ фтшцюъ"
   }
 },
 {
@@ -22,26 +24,19 @@
   "pk": 3,
   "fields": {
     "description": "Create a AMV with DaVinci Resolve",
-    "task_status": "Done",
-    "date": "2023-11-05"
+    "task_status": "done",
+    "date": "2023-11-05",
+    "details": "═єцэю яюыєў°х шчєўшЄ№ ─ртшэўш, юфэръю є ьхэ  эхЄ шфхщ фы  сюы№°шї тшфхю. ╟эрўшЄ ьюцэю яюяЁюсютрЄ№ рэшьх ъышя√"
   }
 },
 {
-  "model": "auth.user",
-  "pk": 1,
+  "model": "main_app.task",
+  "pk": 9,
   "fields": {
-    "password": "pbkdf2_sha256$600000$rZAMmO0ETST1Wo8xwTo9SR$Qqy2Ff+vRzQ2Sx1NgMxeOMsA/zFyuC1t2GIaeroYVTM=",
-    "last_login": "2023-11-27T18:57:07.554Z",
-    "is_superuser": true,
-    "username": "admin",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": true,
-    "is_active": true,
-    "date_joined": "2023-11-27T18:52:30.029Z",
-    "groups": [],
-    "user_permissions": []
+    "description": "╧юшёъ ",
+    "task_status": "New",
+    "date": "2023-12-31",
+    "details": "ъръ ЁрсюЄрхЄ яюшёъют√щ фтшцюъ"
   }
 }
 ]
