@@ -21,7 +21,6 @@ from main_app.views import main_list, new_task, add_task, detailed_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main_list, name='tasks'),
-    path('tasks/new/', new_task, name='new_task'),
-    path('tasks/new/add/', add_task, name='added'),
+    path('tasks/new/', add_task, name='new_task'),
     path('tasks/<int:pk>/', detailed_view, name='task_details')
 ]

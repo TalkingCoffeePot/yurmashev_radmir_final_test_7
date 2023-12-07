@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from main_app.models import Task, status_choices
+from main_app.forms import TaskForm
 # Create your views here.
 
 
@@ -21,23 +22,23 @@ def new_task(request):
 
 #############################################################################
 def add_task(request):
-    description = request.POST.get('description')
-    
-    status = request.POST.get('status')
-    for x in status_choices:
-        if x[0] == status:
-            status = x[1]
-
-    date = request.POST.get('date')
-    details = request.POST.get('details')
-
-    Task.objects.create(description=description, task_status=status, date=date, details=details)
-    task = Task.objects.all()
-
-    context = {
-        'tasks': task
-    }
-    return redirect('tasks')
+    if request.method == 'GET':
+        form = TaskForm()
+        context = {
+        'form': form
+        }
+        return render(request, 'add_task.html', context)
+    elif request.method == 'POST':
+        form = TaskForm(data=request.POST)
+        if form.is_valid():
+            task = Task.objects.create(description=form.cleaned_data['description'], 
+                                task_status=form.cleaned_data['task_status'], 
+                                date=form.cleaned_data['date'], 
+                                details=form.cleaned_data['details'])
+            
+            return redirect('task_details', pk=task.pk)
+        else:
+            return render(request, 'new_task', context={'form': form})
 
 ##############################################################################
 def detailed_view(request, pk):
