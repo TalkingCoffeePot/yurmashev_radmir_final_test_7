@@ -13,14 +13,14 @@ def main_list(request):
     }
     return render(request, 'main_page.html', context)
 
-#############################################################################
+
 def new_task(request):
     context = {
         'status_choices': status_choices
     }
     return render(request, 'add_task.html', context)
 
-#############################################################################
+
 def add_task(request):
     if request.method == 'GET':
         form = TaskForm()
@@ -40,7 +40,7 @@ def add_task(request):
         else:
             return render(request, 'new_task', context={'form': form})
 
-##############################################################################
+
 def update_task(request, pk):
     task = Task.objects.get(pk=pk) 
     if request.method == 'GET':
@@ -66,8 +66,16 @@ def update_task(request, pk):
             return redirect('task_details', pk=task.pk)
         else:
             return render(request, 'update_task', context={'task': task,'form': form})
-    
-##############################################################################
+
+
+def delete_task(request, pk):
+    task = Task.objects.get(pk=pk) 
+    if request.method == 'GET':
+        return render(request, 'delete_task.html', context={'task': task})
+    elif request.method == 'POST':
+        task.delete()
+        return redirect('tasks')    
+
 def detailed_view(request, pk):
     task = Task.objects.get(pk=pk)
     context = {
