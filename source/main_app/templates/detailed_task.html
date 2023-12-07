@@ -27,6 +27,10 @@
             <div class="box">
                 <p>{{task.details}}</p>
             </div>
+            <div class="box">
+                
+                <a href="{% url 'update_task' task.pk %}" class="btn btn-primary">Редактировать</a>
+            </div>
         </div> 
 {% endblock %}
 

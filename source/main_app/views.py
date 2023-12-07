@@ -41,6 +41,33 @@ def add_task(request):
             return render(request, 'new_task', context={'form': form})
 
 ##############################################################################
+def update_task(request, pk):
+    task = Task.objects.get(pk=pk) 
+    if request.method == 'GET':
+        form = TaskForm(initial={
+            'description': task.description,
+            'task_status': task.task_status,
+            'date': task.date,
+            'details': task.details
+        })
+        context = {
+            'task': task,
+            'form': form
+        }
+        return render(request, 'update_task.html', context)
+    elif request.method == 'POST':
+        form = TaskForm(data=request.POST)
+        if form.is_valid():
+            task.description = form.cleaned_data['description']
+            task.task_status = form.cleaned_data['task_status']
+            task.date = form.cleaned_data['date']
+            task.details = form.cleaned_data['details']
+            task.save()
+            return redirect('task_details', pk=task.pk)
+        else:
+            return render(request, 'update_task', context={'task': task,'form': form})
+    
+##############################################################################
 def detailed_view(request, pk):
     task = Task.objects.get(pk=pk)
     context = {
