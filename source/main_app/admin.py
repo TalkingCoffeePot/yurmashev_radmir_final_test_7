@@ -1,10 +1,10 @@
 from django.contrib import admin
-from main_app.models import Task
+from main_app.models import GuestCard
 
 # Register your models here.
-class TaskAdmin(admin.ModelAdmin):
-    list_display = ['id', 'description', 'task_status', 'date', 'details']
-    list_editable = ['description', 'task_status', 'date', 'details']
+class GuestCardAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'mail', 'date_create', 'date_edit', 'description', 'card_status']
+    list_editable = ['name', 'mail', 'description', 'card_status']
 
 
-admin.site.register(Task, TaskAdmin)
+admin.site.register(GuestCard, GuestCardAdmin)

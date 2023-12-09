@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from main_app.models import Task, status_choices
-from main_app.forms import TaskForm
+from main_app.models import GuestCard
+from main_app.forms import GuestCardForm
 # Create your views here.
 
 
