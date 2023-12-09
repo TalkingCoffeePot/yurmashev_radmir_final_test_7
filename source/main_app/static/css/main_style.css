@@ -26,11 +26,12 @@ h1 {
 .box {
     display: flex;
     justify-content: space-between;
+
 }
-.box h2 {
-    margin: auto 3%
+.box h2{
+    margin: auto
 }
-.box h3 {
+.box h3{
     margin: auto
 }
 .box a {
