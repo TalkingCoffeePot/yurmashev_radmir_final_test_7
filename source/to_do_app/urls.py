@@ -16,12 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from main_app.views import main_list, add_card, update_card
+from main_app.views import main_list, add_card, update_card, delete_card
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main_list, name='cards'),
     path('cards/new/', add_card, name='new_card'),
     path('cards/<int:pk>/update', update_card, name='update_card'),
-    # path('tasks/<int:pk>/delete/', delete_task, name='delete_task'),
+    path('cards/<int:pk>/delete/', delete_card, name='delete_card'),
 ]

@@ -7,7 +7,7 @@ from main_app.forms import GuestCardForm
 
 
 def main_list(request):
-    cards = GuestCard.objects.all()
+    cards = GuestCard.objects.exclude(card_status='blocked').order_by('-date_create')
     context = {
         'cards': cards
     }
@@ -20,7 +20,7 @@ def add_card(request):
         context = {
         'form': form
         }
-        return render(request, 'add_task.html', context)
+        return render(request, 'add_card.html', context)
     elif request.method == 'POST':
         form = GuestCardForm(data=request.POST)
         if form.is_valid():
@@ -58,11 +58,11 @@ def update_card(request, pk):
             return render(request, 'update_card', context={'card': card,'form': form})
 
 
-def delete_task(request, pk):
-    task = GuestCard.objects.get(pk=pk) 
+def delete_card(request, pk):
+    card = GuestCard.objects.get(pk=pk) 
     if request.method == 'GET':
-        return render(request, 'delete_task.html', context={'task': task})
+        return render(request, 'delete_card.html', context={'card': card})
     elif request.method == 'POST':
-        task.delete()
-        return redirect('tasks')    
+        card.delete()
+        return redirect('cards')    
 
