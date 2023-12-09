@@ -1,3 +1,8 @@
 {% csrf_token %}
-{{ form.as_p }}
+{% for field in form %}
+<div class="box">
+    <p><label for="{{ field.id_for_label }}">{{ field.label }}</label></p>
+    <p>{{ field }}</p>
+</div>
+{% endfor %}
 <p><input type="submit" value="{{ button_text }}"></p>
