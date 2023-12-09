@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'to_do_app.urls'
+ROOT_URLCONF = 'guest_list_app.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'to_do_app.wsgi.application'
+WSGI_APPLICATION = 'guest_list_app.wsgi.application'
 
 
 # Database

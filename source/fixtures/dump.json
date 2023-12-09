@@ -1,42 +1,74 @@
 [
 {
-  "model": "main_app.task",
+  "model": "main_app.guestcard",
   "pk": 1,
   "fields": {
-    "description": "Check my email",
-    "task_status": "new",
-    "date": "2023-12-04",
-    "details": "Very usefull"
+    "name": "Jeene",
+    "mail": "cards@mail.ru",
+    "date_create": "2023-12-09T08:08:21.813Z",
+    "date_edit": "2023-12-09T10:32:53.582Z",
+    "description": "Продолжение следует...",
+    "card_status": "active"
   }
 },
 {
-  "model": "main_app.task",
-  "pk": 2,
-  "fields": {
-    "description": "Create a simple web-search app",
-    "task_status": "new",
-    "date": "2023-12-12",
-    "details": "Make some tries to create a simple web-search app"
-  }
-},
-{
-  "model": "main_app.task",
+  "model": "main_app.guestcard",
   "pk": 3,
   "fields": {
-    "description": "Create a AMV with DaVinci Resolve",
-    "task_status": "done",
-    "date": "2023-11-05",
-    "details": "Improving my video editing skills"
+    "name": "Tina",
+    "mail": "kaskad@mai.ru",
+    "date_create": "2023-12-09T08:48:20.391Z",
+    "date_edit": "2023-12-09T10:33:40.936Z",
+    "description": "тестовая запись для проверки работоспособности фильтрации блокированных записей",
+    "card_status": "blocked"
   }
 },
 {
-  "model": "main_app.task",
-  "pk": 9,
+  "model": "main_app.guestcard",
+  "pk": 4,
   "fields": {
-    "description": "Search",
-    "task_status": "new",
-    "date": "2023-12-31",
-    "details": "search engine"
+    "name": "Дан",
+    "mail": "carrot@gmail.com",
+    "date_create": "2023-12-09T09:57:58.202Z",
+    "date_edit": "2023-12-09T10:32:46.269Z",
+    "description": "Продавец, который всю свою жизнь провел на морковных полях его родителей. Прописан курс витамина D.",
+    "card_status": "active"
+  }
+},
+{
+  "model": "main_app.guestcard",
+  "pk": 5,
+  "fields": {
+    "name": "Джон Сина",
+    "mail": "sins@mail.ru",
+    "date_create": "2023-12-09T10:18:12.566Z",
+    "date_edit": "2023-12-09T10:33:40.935Z",
+    "description": "В прошлом популярный рестлер, который не так давно получил травму не сопоставимую с дальнейшим продолжением его карьеры",
+    "card_status": "active"
+  }
+},
+{
+  "model": "main_app.guestcard",
+  "pk": 6,
+  "fields": {
+    "name": "Каррель",
+    "mail": "fish@yandex.ru",
+    "date_create": "2023-12-09T10:28:37.432Z",
+    "date_edit": "2023-12-09T10:33:40.934Z",
+    "description": "Чтобы отыскать золотой меч, путнику понадобиться самое лучшее и необходимое снаряжения(пациент настаивал, что он искатель приключений)",
+    "card_status": "active"
+  }
+},
+{
+  "model": "main_app.guestcard",
+  "pk": 7,
+  "fields": {
+    "name": "Марат",
+    "mail": "fundumental@yahoo.com",
+    "date_create": "2023-12-09T10:29:48.302Z",
+    "date_edit": "2023-12-09T10:33:40.932Z",
+    "description": "Некогда бывший офицер, ныне живущий на окраине города со своим фермерским хозяйством",
+    "card_status": "active"
   }
 }
 ]
