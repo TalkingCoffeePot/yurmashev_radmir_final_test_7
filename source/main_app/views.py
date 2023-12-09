@@ -7,78 +7,62 @@ from main_app.forms import GuestCardForm
 
 
 def main_list(request):
-    tasks = Task.objects.all()
+    cards = GuestCard.objects.all()
     context = {
-        'tasks': tasks
+        'cards': cards
     }
     return render(request, 'main_page.html', context)
 
 
-def new_task(request):
-    context = {
-        'status_choices': status_choices
-    }
-    return render(request, 'add_task.html', context)
-
-
-def add_task(request):
+def add_card(request):
     if request.method == 'GET':
-        form = TaskForm()
+        form = GuestCardForm()
         context = {
         'form': form
         }
         return render(request, 'add_task.html', context)
     elif request.method == 'POST':
-        form = TaskForm(data=request.POST)
+        form = GuestCardForm(data=request.POST)
         if form.is_valid():
-            task = Task.objects.create(description=form.cleaned_data['description'], 
-                                task_status=form.cleaned_data['task_status'], 
-                                date=form.cleaned_data['date'], 
-                                details=form.cleaned_data['details'])
+            GuestCard.objects.create(name=form.cleaned_data['name'], 
+                                mail=form.cleaned_data['mail'], 
+                                description=form.cleaned_data['description'])
             
-            return redirect('task_details', pk=task.pk)
+            return redirect('cards')
         else:
-            return render(request, 'new_task', context={'form': form})
+            return render(request, 'new_card', context={'form': form})
 
 
-def update_task(request, pk):
-    task = Task.objects.get(pk=pk) 
+def update_card(request, pk):
+    card = GuestCard.objects.get(pk=pk) 
     if request.method == 'GET':
-        form = TaskForm(initial={
-            'description': task.description,
-            'task_status': task.task_status,
-            'date': task.date,
-            'details': task.details
+        form = GuestCardForm(initial={
+            'name': card.name,
+            'mail': card.mail,
+            'description': card.description
         })
         context = {
-            'task': task,
+            'card': card,
             'form': form
         }
-        return render(request, 'update_task.html', context)
+        return render(request, 'update_card.html', context)
     elif request.method == 'POST':
-        form = TaskForm(data=request.POST)
+        form = GuestCardForm(data=request.POST)
         if form.is_valid():
-            task.description = form.cleaned_data['description']
-            task.task_status = form.cleaned_data['task_status']
-            task.date = form.cleaned_data['date']
-            task.details = form.cleaned_data['details']
-            task.save()
-            return redirect('task_details', pk=task.pk)
+            card.name = form.cleaned_data['name']
+            card.mail = form.cleaned_data['mail']
+            card.description = form.cleaned_data['description']
+            card.save()
+            return redirect('cards')
         else:
-            return render(request, 'update_task', context={'task': task,'form': form})
+            return render(request, 'update_card', context={'card': card,'form': form})
 
 
 def delete_task(request, pk):
-    task = Task.objects.get(pk=pk) 
+    task = GuestCard.objects.get(pk=pk) 
     if request.method == 'GET':
         return render(request, 'delete_task.html', context={'task': task})
     elif request.method == 'POST':
         task.delete()
         return redirect('tasks')    
 
-def detailed_view(request, pk):
-    task = Task.objects.get(pk=pk)
-    context = {
-        'task': task
-    }
-    return render(request, 'detailed_task.html', context)
